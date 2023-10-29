@@ -12,7 +12,10 @@ def Equals():
     global equation
     try:
         result = eval(equation)
-        if result % 1 == 0:
+        if len(str(result)) > 20:
+            label.config(text="Too long")
+            equation = ""
+        elif result % 1 == 0:
             label.config(text=int(result))
             equation = str(int(result))
         else:
